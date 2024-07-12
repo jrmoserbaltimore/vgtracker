@@ -1,5 +1,6 @@
 
 use std::f32::const::TAU;
+use multiversion::multiversion;
 
 #[derive(Oscillator)]
 struct Triangle {
@@ -8,6 +9,7 @@ struct Triangle {
 
 impl GetSample for Triangle {
 
+    #[multiversion(targets("x86_64+avx", "x86_64+avx2", "x86_64+avx512f", "aarch64+neon"))]
     pub fn get_sample(&mut self) -> f32 {
         let sample = {
             // This computes up to 20 sines per sample
