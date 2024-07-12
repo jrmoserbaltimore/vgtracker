@@ -1,0 +1,11 @@
+[package]
+name = "vgtracker"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[workspace]
+members = [
+    "psgsynth",
+]
